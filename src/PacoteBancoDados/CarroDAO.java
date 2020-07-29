@@ -46,7 +46,32 @@ public class CarroDAO {
             return ex.getMessage();
         }
     }
-
+    
+    public String cadastraUsuario(Usuario usuario){
+        
+        String sql = "insert into tbUsuario(nomeUsuario, senhaUsuario) Values (?,?)";
+        try {
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            
+            ps.setString(1, usuario.getNomeUsuario());
+            ps.setString(2, usuario.getSenhaUsuario());
+            
+            
+        if(ps.executeUpdate()>0) {
+            return "Usuário cadastrado com sucesso!";
+           
+        }
+        else{
+            return "Erro ao cadastrar usuário!";
+        }
+            
+        } catch (SQLException ex) {
+            return ex.getMessage();
+   }
+    }
+    
+    
+    
     public String alterar(CarroBean carro) {
 
         String sql = "update carro set cor = ?, descricao = ? where placa = ?";
@@ -89,7 +114,8 @@ public class CarroDAO {
         }
 
     }
-
+    
+    
     public List<CarroBean> listarTodos() {
 
         //Retornar todos os dados dos carros

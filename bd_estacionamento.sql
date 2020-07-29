@@ -9,11 +9,11 @@ descricao VARCHAR(100),
 PRIMARY KEY (placa)
 );
 
-CREATE TABLE usuario(
+CREATE TABLE tbusuario(
 idUsuario INT AUTO_INCREMENT,
-usuarioAdmin VARCHAR(15),
-senhaAdmin VARCHAR(15),
-nomeUsuario VARCHAR(15),
-senhaUsuario VARCHAR(15),
+nomeUsu VARCHAR(15),
+senhaUsu VARCHAR(15),
 PRIMARY KEY (idUsuario)
 );
+
+INSERT INTO tbUsuario (nomeUsu, senhaUsu) VALUES ("admin", "admin");
